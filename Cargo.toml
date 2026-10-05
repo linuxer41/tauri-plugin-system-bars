@@ -1,0 +1,31 @@
+[package]
+name = "tauri-plugin-system-bars"
+version = "0.1.0"
+authors = ["linuxer41"]
+description = "Tauri plugin to control the Android status bar and navigation bar (background colors and icon styles)"
+edition = "2021"
+rust-version = "1.77.2"
+license = "MIT"
+repository = "https://github.com/linuxer41/tauri-plugin-system-bars"
+homepage = "https://github.com/linuxer41/tauri-plugin-system-bars"
+readme = "README.md"
+keywords = ["tauri", "plugin", "android", "statusbar", "navbar"]
+categories = ["gui"]
+exclude = [
+  "/dist-js",
+  "/guest-js",
+  "/node_modules",
+  "/package.json",
+  "/bun.lock",
+  "/tsconfig.json",
+  "/android/.tauri/tauri-api/build",
+]
+links = "tauri-plugin-system-bars"
+
+[dependencies]
+tauri = "2"
+serde = "1"
+thiserror = "2"
+
+[build-dependencies]
+tauri-plugin = "2"
