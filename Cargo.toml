@@ -1,6 +1,6 @@
 [package]
 name = "tauri-plugin-system-bars"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["linuxer41"]
 description = "Tauri plugin to control the Android status bar and navigation bar (background colors and icon styles)"
 edition = "2021"

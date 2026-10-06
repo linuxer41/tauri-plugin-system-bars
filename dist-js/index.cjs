@@ -20,7 +20,9 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // guest-js/index.ts
 var index_exports = {};
 __export(index_exports, {
+  applySafeAreaCssVars: () => applySafeAreaCssVars,
   applyThemeToSystemBars: () => applyThemeToSystemBars,
+  getSafeAreaInsets: () => getSafeAreaInsets,
   setSystemBars: () => setSystemBars
 });
 module.exports = __toCommonJS(index_exports);
@@ -35,6 +37,19 @@ async function setSystemBars(options) {
     }
   });
 }
+async function getSafeAreaInsets() {
+  return await (0, import_core.invoke)("plugin:system-bars|get_insets");
+}
+async function applySafeAreaCssVars() {
+  const insets = await getSafeAreaInsets();
+  const style = document.documentElement.style;
+  style.setProperty("--safe-area-top", `${insets.top}px`);
+  style.setProperty("--safe-area-bottom", `${insets.bottom}px`);
+  style.setProperty("--safe-area-left", `${insets.left}px`);
+  style.setProperty("--safe-area-right", `${insets.right}px`);
+  style.setProperty("--android-safe-bottom", `${insets.bottom}px`);
+  return insets;
+}
 async function applyThemeToSystemBars(dark, lightColor = "#FFFFFF", darkColor = "#111827") {
   const color = dark ? darkColor : lightColor;
   await setSystemBars({
@@ -46,6 +61,8 @@ async function applyThemeToSystemBars(dark, lightColor = "#FFFFFF", darkColor = 
 }
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+  applySafeAreaCssVars,
   applyThemeToSystemBars,
+  getSafeAreaInsets,
   setSystemBars
 });

@@ -10,6 +10,19 @@ async function setSystemBars(options) {
     }
   });
 }
+async function getSafeAreaInsets() {
+  return await invoke("plugin:system-bars|get_insets");
+}
+async function applySafeAreaCssVars() {
+  const insets = await getSafeAreaInsets();
+  const style = document.documentElement.style;
+  style.setProperty("--safe-area-top", `${insets.top}px`);
+  style.setProperty("--safe-area-bottom", `${insets.bottom}px`);
+  style.setProperty("--safe-area-left", `${insets.left}px`);
+  style.setProperty("--safe-area-right", `${insets.right}px`);
+  style.setProperty("--android-safe-bottom", `${insets.bottom}px`);
+  return insets;
+}
 async function applyThemeToSystemBars(dark, lightColor = "#FFFFFF", darkColor = "#111827") {
   const color = dark ? darkColor : lightColor;
   await setSystemBars({
@@ -20,6 +33,8 @@ async function applyThemeToSystemBars(dark, lightColor = "#FFFFFF", darkColor = 
   });
 }
 export {
+  applySafeAreaCssVars,
   applyThemeToSystemBars,
+  getSafeAreaInsets,
   setSystemBars
 };

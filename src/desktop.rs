@@ -19,4 +19,10 @@ impl<R: Runtime> SystemBars<R> {
             "system-bars solo está disponible en Android".to_string(),
         ))
     }
+
+    pub fn get_insets(&self) -> crate::Result<SafeAreaInsets> {
+        Err(crate::Error::Message(
+            "system-bars solo está disponible en Android".to_string(),
+        ))
+    }
 }

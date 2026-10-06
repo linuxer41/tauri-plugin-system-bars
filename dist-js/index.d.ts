@@ -19,10 +19,35 @@ interface SystemBarsOptions {
  * siempre se aplica.
  */
 declare function setSystemBars(options: SystemBarsOptions): Promise<void>;
+interface EdgeInsets {
+    top: number;
+    bottom: number;
+    left: number;
+    right: number;
+}
+/**Insets seguros en dp (status bar, nav bar, gestos, etc.). */
+interface SafeAreaInsets {
+    top: number;
+    bottom: number;
+    left: number;
+    right: number;
+    navigationBars?: EdgeInsets;
+    systemBars?: EdgeInsets;
+    systemGestures?: EdgeInsets;
+    mandatoryGestures?: EdgeInsets;
+    tappableElement?: EdgeInsets;
+    screenWidth?: number;
+    screenHeight?: number;
+    density?: number;
+}
+/** Obtiene los insets reales de las barras del sistema en Android. */
+declare function getSafeAreaInsets(): Promise<SafeAreaInsets>;
+/** Publica los insets como variables CSS en documentElement. */
+declare function applySafeAreaCssVars(): Promise<SafeAreaInsets>;
 /**
  * Atajo para tema claro/oscuro: ajusta iconos según el fondo.
  * `dark = true` => fondos oscuros + iconos claros.
  */
 declare function applyThemeToSystemBars(dark: boolean, lightColor?: string, darkColor?: string): Promise<void>;
 
-export { type SystemBarIcons, type SystemBarsOptions, applyThemeToSystemBars, setSystemBars };
+export { type EdgeInsets, type SafeAreaInsets, type SystemBarIcons, type SystemBarsOptions, applySafeAreaCssVars, applyThemeToSystemBars, getSafeAreaInsets, setSystemBars };
