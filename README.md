@@ -1,7 +1,5 @@
 # tauri-plugin-system-bars
 
-[![crates.io](https://img.shields.io/crates/v/tauri-plugin-system-bars.svg)](https://crates.io/crates/tauri-plugin-system-bars)
-[![npm](https://img.shields.io/npm/v/tauri-plugin-system-bars.svg)](https://www.npmjs.com/package/tauri-plugin-system-bars)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Tauri 2 plugin to control the Android **status bar** and **navigation bar**: background colors and light/dark icon styles, from JavaScript or Rust.
@@ -10,18 +8,26 @@ Tauri 2 plugin to control the Android **status bar** and **navigation bar**: bac
 
 ## Install
 
+Install directly from GitHub (no registry needed).
+
 **Rust** (`src-tauri/Cargo.toml`):
 
 ```toml
 [dependencies]
-tauri-plugin-system-bars = "0.1.0"
+tauri-plugin-system-bars = { git = "https://github.com/linuxer41/tauri-plugin-system-bars" }
+```
+
+To pin a release:
+
+```toml
+tauri-plugin-system-bars = { git = "https://github.com/linuxer41/tauri-plugin-system-bars", tag = "v0.1.0" }
 ```
 
 **JavaScript**:
 
 ```bash
-bun add tauri-plugin-system-bars
-# or: npm install tauri-plugin-system-bars
+bun add github:linuxer41/tauri-plugin-system-bars
+# or: npm install github:linuxer41/tauri-plugin-system-bars
 ```
 
 ## Setup
@@ -107,11 +113,12 @@ Convenience helper: picks colors from the theme and sets matching icon styles.
 
 ## Development
 
+The built `dist-js/` is committed so GitHub installs work out of the box. Rebuild and commit it after changing `guest-js/`:
+
 ```bash
 bun install
 bun run build   # builds dist-js/ (ESM + CJS + types)
 bun run check   # tsc --noEmit
-cargo publish --dry-run
 ```
 
 ## License
