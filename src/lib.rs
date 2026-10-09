@@ -35,7 +35,7 @@ impl<R: Runtime, T: Manager<R>> crate::SystemBarsExt<R> for T {
 /// Initializes the plugin.
 pub fn init<R: Runtime>() -> TauriPlugin<R> {
     Builder::new("system-bars")
-        .invoke_handler(tauri::generate_handler![commands::set_system_bars])
+        .invoke_handler(tauri::generate_handler![commands::set_system_bars, commands::get_insets])
         .setup(|app, api| {
             #[cfg(mobile)]
             let system_bars = mobile::init(app, api)?;

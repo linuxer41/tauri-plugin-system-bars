@@ -1,6 +1,6 @@
 {
   "name": "tauri-plugin-system-bars",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Tauri plugin to control the Android status bar and navigation bar (background colors and icon styles)",
   "type": "module",
   "license": "MIT",

@@ -11,3 +11,8 @@ pub(crate) async fn set_system_bars<R: Runtime>(
 ) -> Result<()> {
     app.system_bars().set_system_bars(payload)
 }
+
+#[command]
+pub(crate) async fn get_insets<R: Runtime>(app: AppHandle<R>) -> Result<SafeAreaInsets> {
+    app.system_bars().get_insets()
+}

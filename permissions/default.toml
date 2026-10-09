@@ -2,4 +2,4 @@
 
 [default]
 description = "Default permissions for the plugin"
-permissions = ["allow-set-system-bars"]
+permissions = ["allow-set-system-bars", "allow-get-insets"]

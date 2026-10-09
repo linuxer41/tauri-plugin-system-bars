@@ -35,4 +35,10 @@ impl<R: Runtime> SystemBars<R> {
             .run_mobile_plugin("setSystemBars", payload)
             .map_err(Into::into)
     }
+
+    pub fn get_insets(&self) -> crate::Result<SafeAreaInsets> {
+        self.0
+            .run_mobile_plugin("getInsets", ())
+            .map_err(Into::into)
+    }
 }

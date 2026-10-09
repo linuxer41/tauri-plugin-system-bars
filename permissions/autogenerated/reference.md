@@ -5,6 +5,7 @@ Default permissions for the plugin
 #### This default permission set includes the following:
 
 - `allow-set-system-bars`
+- `allow-get-insets`
 
 ## Permission Table
 
@@ -14,6 +15,32 @@ Default permissions for the plugin
 <th>Description</th>
 </tr>
 
+
+<tr>
+<td>
+
+`system-bars:allow-get-insets`
+
+</td>
+<td>
+
+Enables the get_insets command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`system-bars:deny-get-insets`
+
+</td>
+<td>
+
+Denies the get_insets command without any pre-configured scope.
+
+</td>
+</tr>
 
 <tr>
 <td>
